@@ -84,6 +84,8 @@ h6, .h6 {
   margin-bottom: 0;
   font-size: 40px;
   font-weight: normal;
+  font-style: italic;
+  font-family: cursive;
 }
 .blog-tag {
     background-color: #428bca;
