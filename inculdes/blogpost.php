@@ -1,5 +1,4 @@
 <?php
-
 class blogpost {
     public $id;
     public $title;
@@ -7,7 +6,6 @@ class blogpost {
     public $author;
     public $tags;
     public $datePosted;
-    
     
     public function __construct($id=null, $title=null, $post=null, $author=null, $tags=null, $datePosted=null) {
         global $con;
@@ -26,12 +24,11 @@ class blogpost {
         }
         // get the author form the database 
         if(!empty($author)){
-        $query= mysqli_query($con,"SELECT name FROM people WHERE id=".$author);
+        $query= mysqli_query($con,"SELECT name FROM people WHERE author_id=".$author);
         $row = mysqli_fetch_assoc($query);
         $this->author = $row["name"];
         }
-       // $query= mysqli_query($con,"SELECT * FROM blog_post_tags WHERE blog_post_tags.blog_post_id=".$id);
-                
+       // $query= mysqli_query($con,"SELECT * FROM blog_post_tags WHERE blog_post_tags.blog_post_id=".$id);         
         $postTags="NO Tags";
         if(!empty($id)){
         $query = mysql_query($con,"SELECT tags * FROM blog_post_tags LEFT JOIN (tags) ON (blog_post_tags.tag_id = tags.id) WHERE blog_post_tags.blog_post_id = " . $id);  
@@ -41,7 +38,6 @@ class blogpost {
             array_push($tagsArray, $row["name"]);
             array_push($tagsIdArray, $row["id"]);
         }
-        
         if(sizeof($tagsArray)>0){
             foreach ($tagsArray as $tags)
                 {
