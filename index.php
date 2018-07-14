@@ -24,7 +24,7 @@
             <link href="syteme/post-main.css" rel="stylesheet"/>
         </head>
 	<body>
-                   
+
             <div class="blog-masthead navbar-fixed-top top-nav">
                         <div class="container">
                           <nav class="blog-nav">
@@ -60,46 +60,49 @@
                       </div>
                   </div>
         <br/>
-        
+
         <div class="blog-post">
             <?php
             include 'inculdes/include.php';
- 
+
         $blogPosts = GetBlogPost();
-            foreach ($blogPosts as $post)
-                    {
-                        echo "<div class='auto-style3 w3-card-2 w3-margin-bottom w3-white'>";
-                        echo '<div class="auto-style6 w3-btn w3-block w3-light-gray">';
-                        echo "<h3>" . $post->title . "</h3>";
-                        echo '</div>';
-                        echo '<div class="auto-style1">';
-                        echo '<img src="img/img_fjords.jpg" style="width: 100%" class="w3-hover-opacity"/>';
-                        echo '</div>';
-                        echo '<div class="auto-style2">';
-                        echo "<span class='w3-block blog-tag'>Posted By: " . $post->author . " Posted On: " . $post->datePosted . " Tags: " . $post->tags . "</span>";
-                        echo '<br/>';
-                        echo '<br/>';
-                        echo '<p style="width: 350px;">' . $post->post . '</h1>';    
-                        echo "</div>";
-                        echo '<div class="auto-style5">
+            foreach ($blogPosts as $post): ?>
+
+                        <div class="auto-style3 w3-card-2 w3-margin-bottom w3-white">
+                        <div class="auto-style6 w3-btn w3-block w3-light-gray">
+                        <h3> <?php echo $post->title ?></h3>
+                        </div>
+                        <div class="auto-style1">
+                        <img src="img/img_fjords.jpg" style=" width: 100%" class="w3-hover-opacity"/>
+                        </div>
+                        <div class="auto-style2">
+                        <span class="w3-block blog-tag">
+                            Posted By: <?php echo $post->author; ?>
+                            Posted On: <?php echo $post->datePosted ?>
+                            Tags: <?php echo $post->tags ?>
+                        </span>
+                        <br/>
+                        <br/>
+                        <p style="width: 350px;"><?php echo $post->post ?></h1>
+                        </div>
+                        <div class="auto-style5">
                                 <a class="btn btn-block btn-primary">READ MORE</a>
-                                 </div>';
-                        echo '</div>';
-                        
-                    }
-            ?>      
-        </div> 
-        
+                        </div>
+                        </div>
+
+                    <?php endforeach; ?>
+        </div>
+
      <div class="blog-sidebar">
          <div class="w3-card-2 w3-container w3-margin-bottom w3-padding-small">
              <input type="text" placeholder="Search" class="w3-input"/>
              <button class="w3-btn w3-light-gray w3-round">Search</button>
          </div>
-         
+
          <div class="w3-card-4 w3-container w3-margin-bottom">
              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FServerLandnews%2F&tabs&width=280&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="280" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
          </div>
-         
+
          <div class="w3-container w3-card-4 w3-margin-bottom">
   <div class="w3-row">
     <a href="javascript:void(0)" onclick="openTab(event, 'Popular');">
@@ -116,7 +119,7 @@
   <div id="Popular" class="w3-container tab active" style="display:block">
       <br/>
     <h4>Popular</h4>
-    
+
     <div class="row">
               <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
                   <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
@@ -129,7 +132,7 @@
               <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
                   <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
           </div>
-        
+
   </div>
 
   <div id="Trending" class="w3-container tab" style="display:none">
@@ -151,7 +154,7 @@
               <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
                   <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
           </div>
-       
+
   </div>
 
   <div id="Comments" class="w3-container tab" style="display:none">
@@ -178,14 +181,14 @@ function openTab(evt, cityName) {
 </script>
 
 <div class="w3-card-4 w3-container w3-margin-bottom">
-    
+
 </div>
 <div class="w3-card-4 w3-container w3-margin-bottom">
-    
-</div> 
+
+</div>
 <div class="w3-card-4 w3-container w3-margin-bottom">
-    
-</div> 
+
+</div>
      </div>
         <br/>
         <nav class="bar">
@@ -201,7 +204,7 @@ function openTab(evt, cityName) {
         <a href="#">Back to top</a>
       </p>
     </footer>
-        
+
     	 <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
