@@ -6,7 +6,7 @@ class blogpost {
     public $author;
     public $tags;
     public $datePosted;
-    
+
     public function __construct($id=null, $title=null, $post=null, $author=null, $tags=null, $datePosted=null) {
         global $con;
         if(!empty($id)){
@@ -22,36 +22,36 @@ class blogpost {
         $splitDate = explode("-", $datePosted);
         $this->datePosted = $splitDate[1] . "/" . $splitDate[2] . "/" . $splitDate[0];
         }
-        // get the author form the database 
+        // get the author form the database
         if(!empty($author)){
-        $query= mysqli_query($con,"SELECT name FROM people WHERE author_id=".$author);
-        $row = mysqli_fetch_assoc($query);
+        $query = $con->query("SELECT name FROM people WHERE author_id=".$author);
+        $row = $query->fetch_assoc($query);
         $this->author = $row["name"];
         }
-       // $query= mysqli_query($con,"SELECT * FROM blog_post_tags WHERE blog_post_tags.blog_post_id=".$id);         
+       // $query= mysqli_query($con,"SELECT * FROM blog_post_tags WHERE blog_post_tags.blog_post_id=".$id);
         $postTags="NO Tags";
         if(!empty($id)){
-        $query = mysql_query($con,"SELECT tags * FROM blog_post_tags LEFT JOIN (tags) ON (blog_post_tags.tag_id = tags.id) WHERE blog_post_tags.blog_post_id = " . $id);  
+        $query = $con->query("SELECT * FROM blog_post_tags LEFT JOIN tags ON (blog_post_tags.tag_id = tags.id) WHERE blog_post_tags.blog_post_id = " . $id);
         $tagsArray=array();
         $tagsIdArray=array();
-        while($row = mysqli_fetch_assoc($query)){
+        while($row = $query->fetch_assoc()){
             array_push($tagsArray, $row["name"]);
             array_push($tagsIdArray, $row["id"]);
         }
         if(sizeof($tagsArray)>0){
             foreach ($tagsArray as $tags)
                 {
-                if($postTags=="NO Tags")
+                if($postTags == "NO Tags")
                     {
-                    $postTags=$tags;
+                    $postTags = $tags;
                 }
             else {
-             $postTags=$postTags.",".$tags;
+             $postTags = $postTags.",".$tags;
             }
             }
         }
         }
-        $this->tags=$postTags;
+        $this->tags = $postTags;
     }
 
 }
