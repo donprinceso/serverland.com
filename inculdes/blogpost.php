@@ -6,52 +6,55 @@ class blogpost {
     public $author;
     public $tags;
     public $datePosted;
-
-    public function __construct($id=null, $title=null, $post=null, $author=null, $tags=null, $datePosted=null) {
+    
+    public function __construct($inId=null, $inTitle=null, $inPost=null, $inPostFull=null, $inAuthorId=null, $inDatePosted=null) {
         global $con;
-        if(!empty($id)){
-        $this->id = $id;
+        if(!empty($inId)){
+        $this->id = $inId;
         }
-        if(!empty($title)){
-        $this->title = $title;
+        if(!empty($inTitle)){
+        $this->title = $inTitle;
         }
-        if(!empty($post)){
-        $this->post = $post;
+        if(!empty($inPost)){
+        $this->post = $inPost;
         }
-        if(!empty($datePosted)){
-        $splitDate = explode("-", $datePosted);
+        if(!empty($inDatePosted)){
+        $splitDate = explode("-", $inDatePosted);
         $this->datePosted = $splitDate[1] . "/" . $splitDate[2] . "/" . $splitDate[0];
         }
-        // get the author form the database
-        if(!empty($author)){
-        $query = $con->query("SELECT name FROM people WHERE author_id=".$author);
-        $row = $query->fetch_assoc($query);
-        $this->author = $row["name"];
+        // get the author form the database 
+        if(!empty($inAuthorId)){
+        $query= mysql_query("SELECT first_name, last_name FROM people WHERE id=".$inAuthorId);
+        $row = mysql_fetch_assoc($query);
+        $this->author = $row["first_name"] . " " . $row["last_name"];
         }
-       // $query= mysqli_query($con,"SELECT * FROM blog_post_tags WHERE blog_post_tags.blog_post_id=".$id);
+       // $query= mysqli_query($con,"SELECT * FROM blog_post_tags WHERE blog_post_tags.blog_post_id=".$id);         
         $postTags="NO Tags";
-        if(!empty($id)){
-        $query = $con->query("SELECT * FROM blog_post_tags LEFT JOIN tags ON (blog_post_tags.tag_id = tags.id) WHERE blog_post_tags.blog_post_id = " . $id);
-        $tagsArray=array();
-        $tagsIdArray=array();
-        while($row = $query->fetch_assoc()){
-            array_push($tagsArray, $row["name"]);
-            array_push($tagsIdArray, $row["id"]);
-        }
-        if(sizeof($tagsArray)>0){
-            foreach ($tagsArray as $tags)
-                {
-                if($postTags == "NO Tags")
-                    {
-                    $postTags = $tags;
-                }
-            else {
-             $postTags = $postTags.",".$tags;
-            }
-            }
-        }
-        }
-        $this->tags = $postTags;
+        if(!empty($inId)){
+        $query = mysql_query("SELECT tags.* FROM blog_post_tags LEFT JOIN (tags) ON (blog_post_tags.tag_id = tags.id) WHERE blog_post_tags.blog_post_id = " . $inId);
+		$tagArray = array();
+        $tagIDArray = array();
+		while($row = mysql_fetch_assoc($query))
+		{
+			array_push($tagArray, $row["name"]);
+			array_push($tagIDArray, $row["id"]);
+		}
+		if (sizeof($tagArray) > 0)
+		{
+			foreach ($tagArray as $tag)
+			{
+				if ($postTags == "No Tags")
+				{
+					$postTags = $tag;
+				}
+				else
+				{
+					$postTags = $postTags . ", " . $tag;
+				}
+			}
+		}
+	}
+	$this->tags = $postTags;
     }
-
+   
 }
