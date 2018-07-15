@@ -121,16 +121,16 @@
     <h4>Popular</h4>
 
     <div class="row">
-              <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
-                  <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
+        <a href="read-news.php"><img src="img/img_fjords.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
+                  <h5>Tokyo is the capital of Japan.</h5></a>
           </div>
     <div class="row">
-              <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
-                  <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
+              <a href="read-news.php"><img src="img/img_fjords.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
+                  <h5>Tokyo is the capital of Japan.</h5></a>
           </div>
     <div class="row">
-              <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
-                  <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
+              <a href="read-news.php"><img src="img/img_fjords.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
+                  <h5>Tokyo is the capital of Japan.</h5></a>
           </div>
 
   </div>
@@ -139,20 +139,20 @@
       <br/>
     <h4>Trending</h4>
      <div>
-              <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
-                  <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
+              <a href="read-news.php"><img src="img/img_fjords.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
+                  <h5>Tokyo is the capital of Japan.</h5></a>
           </div>
           <div>
-              <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
-                  <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
+              <a href="read-news.php"><img src="img/img_fjords.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
+                  <h5>Tokyo is the capital of Japan.</h5></a>
           </div>
           <div>
-              <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
-                  <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
+              <a href="read-news.php"><img src="img/img_fjords.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
+                  <h5>Tokyo is the capital of Japan.</h5></a>
           </div>
           <div>
-              <a href="read-news.php"><img src="res/imgs/1.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
-                  <h5>Abia Poly Entrance Exam and cut off marks</h5></a>
+              <a href="read-news.php"><img src="img/img_fjords.jpg" class="img-responsive img-thumbnail" width="100px" height="100px">
+                  <h5>Tokyo is the capital of Japan.</h5></a>
           </div>
 
   </div>
